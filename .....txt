@@ -1,0 +1,73 @@
+
+text_timer = Label(0,0,50,50, back)
+text.timer.set_text('„B„‚„u„}„‘:',40,DARK_BLUE)
+timer = Label(0,50,50,40,  back)
+timer.set_text('0',40, DARK_BLUE)
+
+player = Player('hero.png',30,50,70,70,0,0)
+
+
+        if e.type == KEYDOWN:
+            if e.key == K_LEFT:
+                player.speed_x = -5
+            if e.key == K_RIGHT:
+                player.speed_x = 5
+            if e.key == K_UP:
+                player.speed_y = -5
+            if e.key == K_DOWN:
+                player.speed_y = 5
+        if e.type == KEYUP:
+            if e.key == K_UP:
+                player.speed_y = 0
+            if e.key ==K_DOWN:
+                player.speed_y = 0
+            if  e.key == K_LEFT:
+                player.speed_x = 0
+            if e.key == K_RIGHT:
+                player.speed_x = 0
+
+    player.update()
+    player.reset()  
+
+
+
+if left:
+            self.xvel = -MOVE_SPEED#„L„u„r„€ = „‡ - n
+        if right:
+            self.xvel = MOVE_SPEED#„P„‚„p„r„€ = „‡ + n
+        if not(left or right):#„R„„„€„y„}, „{„€„s„t„p „~„u„„ „…„{„p„x„p„~„y„z „y„t„„„y
+            self.xvel = 0
+        
+        self.rect.x += self.xvel #„P„u„‚„u„~„€„ƒ„y„} „ƒ„r„€„v „„€„|„€„w„u„~„y„u „~„p xvel
+
+        if up:
+            if self.on.on.Ground:#„P„‚„„s„p„u„} „„„€„|„„{„€ „„„€„s„t„p „{„€„s„t„p „}„€„w„u„} „€„„„„„€„|„{„~„…„„„„ƒ„‘ „€„„ „„€„r„u„‚„‡„~„€„ƒ„„„y
+                self.yvel = -JUMP_POWER
+            if not self.on.Ground:
+                self.yvel += GRAVITY
+            self.on.Ground = False
+            self.rect.y += self.yvel
+
+        if e.type == KEYDOWN and e.key == K_LEFT:
+            left = True
+        if e.type == KEYDOWN and e.key == K_RIGHT:
+            right = False
+        if e.type == KEYUP and e.key == K_RIGHT:
+            right = False
+        if e.type == KEYUP and e.key == K_LEFT:
+            left = False
+            
+        if e.type == KEYDOWN and  e.key == K_UP:
+            up = True
+        if e.type == KEYUP and e.key == K_UP:
+            up = False
+
+        self.rect.x += self.xvel #„P„u„‚„u„~„€„ƒ„y„} „ƒ„r„€„v „„€„|„€„w„u„~„y„u „~„p xvel
+
+    def draw(self,screen):#„B„„r„€„t „ƒ„u„q„‘ „~„p „„{„‚„p„~
+        screen.blit(self.image, (self.rect.x,self.rect.y)) 
+
+hero = Player('mag.png',55,55)#„R„€„x„t„p„u„} „„u„‚„ƒ„€„~„p„w„p „„€ „{„€„€„‚„t„y„~„p„„„p„}
+
+left = right = False #„R„„„€„y„} „„€ „…„}„€„|„‰„p„~„y„
+up = False
